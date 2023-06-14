@@ -12,13 +12,17 @@ const User = sequelize.define('User', {
     type: DataTypes.STRING,
     allowNull: false,
   },
-  noteId: {
+  notesId: {
     type: DataTypes.STRING,
     allowNull: false,
     unique: true,
   },
+}, {
+  timestamps: true, // 啟用自動管理 createdAt 和 updatedAt
 });
 
-User.hasMany(Project, { as: 'projects' });
+
+
+// User.hasMany(Project, { as: 'projects' });
 
 module.exports = User;

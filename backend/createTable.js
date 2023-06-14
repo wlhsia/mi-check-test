@@ -1,3 +1,4 @@
+
 require("dotenv").config();
 
 const sequelize = require('./models/db');
@@ -13,4 +14,7 @@ sequelize
   .catch((error) => {
     console.error("Error syncing models:", error);
   });
+
+
+
 

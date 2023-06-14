@@ -2,13 +2,11 @@ const { Sequelize } = require('sequelize');
 
 const sequelize = new Sequelize(process.env.DB_NAME, process.env.DB_USERNAME, process.env.DB_PASSWORD, {
   host: process.env.DB_HOST,
-  dialect: 'mssql',
+  dialect: process.env.DB_DIALECT,
   dialectOptions: {
-    options: {
-      encrypt: true, // 如果使用加密的連線，設置為 true
-    },
+    useUTC: false, // 禁用 UTC 時間
+    timezone: 'Asia/Taipei', // 設置為你所需的時區
   },
-  logging: false, // 是否顯示 SQL 日誌，設置為 false 可禁用
 });
 
 // 測試資料庫連線

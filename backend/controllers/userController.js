@@ -13,7 +13,7 @@ const UserController = {
 
   async getUsers(req, res) {
     try {
-      const users = await User.findAll();
+      const users = await User.findAll({ raw: true });
       res.json(users);
     } catch (error) {
       console.error(error);
