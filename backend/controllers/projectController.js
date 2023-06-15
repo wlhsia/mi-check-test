@@ -1,6 +1,3 @@
-// const Project = require("../models/projectModel");
-// const User = require("../models/userModel");
-
 const { User, Project } = require("../models");
 
 const ProjectController = {

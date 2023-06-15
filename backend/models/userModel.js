@@ -10,6 +10,10 @@ User.init(
       autoIncrement: true,
       primaryKey: true,
     },
+    notesId: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
     name: {
       type: DataTypes.STRING,
       allowNull: false,
