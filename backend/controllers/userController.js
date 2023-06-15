@@ -1,4 +1,7 @@
-const User = require("../models/userModel");
+// const User = require("../models/userModel");
+// const Project = require("../models/projectModel");
+
+const { User, Project } = require("../models");
 
 const UserController = {
   async createUser(req, res) {
@@ -13,7 +16,12 @@ const UserController = {
 
   async getUsers(req, res) {
     try {
-      const users = await User.findAll({ raw: true });
+      const users = await User.findAll({
+        include: [
+          { model: Project, as: "checkProjects" },
+          { model: Project, as: "improveProjects" },
+        ],
+      });
       res.json(users);
     } catch (error) {
       console.error(error);
