@@ -2,14 +2,14 @@ import React from "react";
 
 const AppBar = () => {
   return (
-    <header className="bg-gray-600">
+    <header className="bg-gray-500">
       <nav className=" mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center">
             <div className="flex-shrink-0">
               <img
-                className="h-8 w-8"
-                src="/vite.svg" // 替換為您的應用程式圖示
+                className="h-12 w-20"
+                src="/fcfc.png" // 替換為您的應用程式圖示
                 alt="Logo"
               />
             </div>
@@ -17,19 +17,19 @@ const AppBar = () => {
               <div className="ml-10 flex items-baseline space-x-4">
                 <a
                   href="#"
-                  className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+                  className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-lg font-bold"
                 >
                   首頁
                 </a>
                 <a
                   href="#"
-                  className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+                  className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-lg font-bold"
                 >
                   關於
                 </a>
                 <a
                   href="#"
-                  className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+                  className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-lg font-bold"
                 >
                   服務
                 </a>
@@ -40,6 +40,7 @@ const AppBar = () => {
           <div className="hidden md:block">
             <div className="ml-4 flex items-center md:ml-6">
               {/* 其他元件，例如使用者資訊、通知等 */}
+              <a className="text-gray-300">N000171574</a>
             </div>
           </div>
           {/* 行動設備上的漢堡選單 */}
