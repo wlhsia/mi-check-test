@@ -10,7 +10,7 @@ Project.init(
       autoIncrement: true,
       primaryKey: true,
     },
-    name: {
+    projectNo: {
       type: DataTypes.STRING,
       allowNull: false,
     },

@@ -3,8 +3,6 @@ const bodyParser = require("body-parser");
 
 require("dotenv").config();
 
-
-
 app = express();
 // 使用 body-parser 中間件解析請求主體
 app.use(bodyParser.json());

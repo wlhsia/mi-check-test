@@ -18,12 +18,11 @@ const authController = {
             if (user) {
                 // 簽發 JWT
                 const payload = { id: user.id, username: user.username };
-                const token = jwt.sign(payload, secretKey);
+                const token = jwt.sign(payload, secretKey, { expiresIn: '1h' });
                 res.json({ token });
             } else {
                 res.status(401).json({ message: '找不到該使用者' });
             }
-            res.json({ token });
         } else {
             // 登入失敗回傳錯誤訊息
             res.status(401).json({ message: '登入失敗' });

@@ -4,6 +4,7 @@ const secretKey = process.env.SECRET_KEY;
 
 function authenticateToken(req, res, next) {
   const authHeader = req.headers['authorization'];
+
   const token = authHeader && authHeader.split(' ')[1];
 
   if (token == null) {
@@ -14,7 +15,6 @@ function authenticateToken(req, res, next) {
     if (err) {
       return res.sendStatus(403);
     }
-
     req.user = user;
     next();
   });
