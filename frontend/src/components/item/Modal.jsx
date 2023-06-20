@@ -1,18 +1,34 @@
-import React, { useState } from "react";
-import { useForm } from "react-hook-form";
-import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import PropTypes from "prop-types";
 
-const Modal = ({ isOpen, onClose }) => {
+const Modal = ({
+  isOpen,
+  toggleModal,
+  isNew,
+  item,
+  setItem,
+  createItem,
+  updateItem,
+  getItems,
+}) => {
   if (!isOpen) return null;
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm();
 
-  const onSubmit = (data) => {
-    console.log(data);
+  const handleInputChange = (e) => {
+    setItem((prev) => ({ ...prev, [e.target.id]: e.target.value }));
+  };
+
+  const handleSubmit = async () => {
+    if (isNew) {
+      await createItem();
+    } else {
+      await updateItem();
+    }
+    await getItems();
+    await toggleModal();
+  };
+  const handleCancel = (e) => {
+    e.preventDefault();
+    toggleModal();
   };
 
   return (
@@ -21,90 +37,79 @@ const Modal = ({ isOpen, onClose }) => {
         <div className="fixed inset-0 transition-opacity">
           <div
             className="absolute inset-0 bg-gray-500 opacity-75"
-            onClick={onClose}
+            onClick={toggleModal}
           />
         </div>
         <span className="hidden sm:inline-block sm:align-middle sm:h-screen" />
         <div className="inline-block align-bottom bg-white rounded-xl text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-2xl sm:w-full h-5/6">
-          <div className="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
-            <form onSubmit={handleSubmit(onSubmit)} className="p-4">
+          <div className="bg-white p-8">
+            <form onSubmit={handleSubmit} className="space-y-5">
               {/* 表單欄位 */}
-              <div className="mb-4">
-                <label
-                  htmlFor="name"
-                  className="block text-gray-700 text-mg font-bold mb-2"
-                >
-                  Name:
+              <div>
+                <label htmlFor="itemNo" className="block text-gray-700 text-lg">
+                  評核項目序號
                 </label>
                 <input
                   type="text"
-                  id="name"
-                  disabled
-                  className="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline disabled:bg-amber-300"
-                  {...register("name", { required: true })}
-                />
-                {errors.name && (
-                  <p className="text-red-500 text-xs mt-1">Name is required.</p>
-                )}
-              </div>
-              {/* 時間選擇 */}
-              <div className="mb-96 w-full">
-                <label
-                  htmlFor="檢核日期"
-                  className="block text-gray-700 text-sm font-bold mb-2"
-                >
-                  Time:
-                </label>
-                <DatePicker
-                  id="time"
-                  // className=""
-                  // selected={startTime}
-                  // onChange={(date) => setStartTime(date)}
-                  showTimeSelect
-                  dateFormat="Pp"
+                  id="itemNo"
+                  value={item.itemNo}
+                  className="border rounded w-full p-2 text-gray-700 focus:outline-none focus:shadow-outline"
+                  onChange={handleInputChange}
                 />
               </div>
-              <div className="mb-96 w-full">
-                <label
-                  htmlFor="檢核日期"
-                  className="block text-gray-700 text-sm font-bold mb-2"
-                >
-                  Time:
+              <div>
+                <label htmlFor="item" className="block text-gray-700 text-lg  ">
+                  評核項目
                 </label>
-                <DatePicker
-                  id="time"
-                  // className=""
-                  // selected={startTime}
-                  // onChange={(date) => setStartTime(date)}
-                  showTimeSelect
-                  dateFormat="Pp"
+                <input
+                  type="text"
+                  id="item"
+                  value={item.item}
+                  className="border rounded w-full p-2 text-gray-700 focus:outline-none focus:shadow-outline"
+                  onChange={handleInputChange}
                 />
               </div>
-              <div className="mb-96 w-full">
+              <div>
                 <label
-                  htmlFor="檢核日期"
-                  className="block text-gray-700 text-sm font-bold mb-2"
+                  htmlFor="standardNo"
+                  className="block text-gray-700 text-lg  "
                 >
-                  Time:
+                  評核標準序號
                 </label>
-                <DatePicker
-                  id="time"
-                  // className=""
-                  // selected={startTime}
-                  // onChange={(date) => setStartTime(date)}
-                  showTimeSelect
-                  dateFormat="Pp"
+                <input
+                  type="text"
+                  id="standardNo"
+                  value={item.standardNo}
+                  className="border rounded w-full p-2 text-gray-700 focus:outline-none focus:shadow-outline"
+                  onChange={handleInputChange}
+                />
+              </div>
+              <div>
+                <label
+                  htmlFor="standard"
+                  className="block text-gray-700 text-lg  "
+                >
+                  評核標準
+                </label>
+                <textarea
+                  id="standard"
+                  value={item.standard}
+                  className="border rounded w-full h-48 p-2 text-gray-700 focus:outline-none focus:shadow-outline"
+                  onChange={handleInputChange}
                 />
               </div>
               <div className="flex justify-end space-x-1">
-                <button className="bg-red-500 hover:bg-red-700 text-white py-2 px-4 rounded">
+                <button
+                  className="bg-red-500 hover:bg-red-700 text-white py-2 px-4 rounded"
+                  onClick={handleCancel}
+                >
                   取消
                 </button>
                 <button
                   type="submit"
                   className="bg-gray-500 hover:bg-gray-700 text-white py-2 px-4 rounded"
                 >
-                  提交
+                  {isNew ? "新增" : "編輯"}
                 </button>
               </div>
             </form>
@@ -113,6 +118,17 @@ const Modal = ({ isOpen, onClose }) => {
       </div>
     </div>
   );
+};
+
+Modal.propTypes = {
+  isOpen: PropTypes.bool,
+  toggleModal: PropTypes.func,
+  isNew: PropTypes.bool,
+  item: PropTypes.object,
+  setItem: PropTypes.func,
+  createItem: PropTypes.func,
+  updateItem: PropTypes.func,
+  getItems: PropTypes.func,
 };
 
 export default Modal;
