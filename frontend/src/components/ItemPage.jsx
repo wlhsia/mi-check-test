@@ -126,7 +126,6 @@ const ItemPage = () => {
         getItems={getItems}
       />
       <div className="container mx-auto py-4">
-        {/* Tab Headers */}
         <div className="flex border-b-2 border-gray-200">
           {tabs.map((tab) => (
             <button
@@ -142,7 +141,6 @@ const ItemPage = () => {
             </button>
           ))}
         </div>
-        {/* Tab Content */}
         <div className="mt-4">
           <div className="flex justify-end py-2">
             <button
