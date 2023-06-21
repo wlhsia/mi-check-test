@@ -32,47 +32,47 @@ const Modal = ({
   };
 
   return (
-    <div className="fixed z-10 inset-0 overflow-y-auto">
-      <div className="flex items-center justify-center min-h-screen text-center sm:block sm:p-0">
+    <div className="fixed inset-0 z-10 overflow-y-auto">
+      <div className="flex min-h-screen items-center justify-center text-center sm:block sm:p-0">
         <div className="fixed inset-0 transition-opacity">
           <div
             className="absolute inset-0 bg-gray-500 opacity-75"
             onClick={toggleModal}
           />
         </div>
-        <span className="hidden sm:inline-block sm:align-middle sm:h-screen" />
-        <div className="inline-block align-bottom bg-white rounded-xl text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-2xl sm:w-full h-5/6">
+        <span className="hidden sm:inline-block sm:h-screen sm:align-middle" />
+        <div className="inline-block h-5/6 transform overflow-hidden rounded-xl bg-white text-left align-bottom shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-2xl sm:align-middle">
           <div className="bg-white p-8">
             <form onSubmit={handleSubmit} className="space-y-5">
               {/* 表單欄位 */}
               <div>
-                <label htmlFor="itemNo" className="block text-gray-700 text-lg">
+                <label htmlFor="itemNo" className="block text-lg text-gray-700">
                   評核項目序號
                 </label>
                 <input
                   type="text"
                   id="itemNo"
                   value={item.itemNo}
-                  className="border rounded w-full p-2 text-gray-700 focus:outline-none focus:shadow-outline"
+                  className="focus:shadow-outline w-full rounded border p-2 text-gray-700 focus:outline-none"
                   onChange={handleInputChange}
                 />
               </div>
               <div>
-                <label htmlFor="item" className="block text-gray-700 text-lg  ">
+                <label htmlFor="item" className="block text-lg text-gray-700  ">
                   評核項目
                 </label>
                 <input
                   type="text"
                   id="item"
                   value={item.item}
-                  className="border rounded w-full p-2 text-gray-700 focus:outline-none focus:shadow-outline"
+                  className="focus:shadow-outline w-full rounded border p-2 text-gray-700 focus:outline-none"
                   onChange={handleInputChange}
                 />
               </div>
               <div>
                 <label
                   htmlFor="standardNo"
-                  className="block text-gray-700 text-lg  "
+                  className="block text-lg text-gray-700  "
                 >
                   評核標準序號
                 </label>
@@ -80,34 +80,34 @@ const Modal = ({
                   type="text"
                   id="standardNo"
                   value={item.standardNo}
-                  className="border rounded w-full p-2 text-gray-700 focus:outline-none focus:shadow-outline"
+                  className="focus:shadow-outline w-full rounded border p-2 text-gray-700 focus:outline-none"
                   onChange={handleInputChange}
                 />
               </div>
               <div>
                 <label
                   htmlFor="standard"
-                  className="block text-gray-700 text-lg  "
+                  className="block text-lg text-gray-700  "
                 >
                   評核標準
                 </label>
                 <textarea
                   id="standard"
                   value={item.standard}
-                  className="border rounded w-full h-48 p-2 text-gray-700 focus:outline-none focus:shadow-outline"
+                  className="focus:shadow-outline h-48 w-full rounded border p-2 text-gray-700 focus:outline-none"
                   onChange={handleInputChange}
                 />
               </div>
               <div className="flex justify-end space-x-1">
                 <button
-                  className="bg-red-500 hover:bg-red-700 text-white py-2 px-4 rounded"
+                  className="rounded bg-red-500 px-4 py-2 text-white hover:bg-red-700"
                   onClick={handleCancel}
                 >
                   取消
                 </button>
                 <button
                   type="submit"
-                  className="bg-gray-500 hover:bg-gray-700 text-white py-2 px-4 rounded"
+                  className="rounded bg-gray-500 px-4 py-2 text-white hover:bg-gray-700"
                 >
                   {isNew ? "新增" : "編輯"}
                 </button>

@@ -21,41 +21,41 @@ const Table = ({
     <table className="min-w-full divide-y divide-gray-600">
       <thead className="bg-gray-500">
         <tr>
-          <th className="px-6 py-3 w-1/12 text-left text-md font-medium text-gray-100">
+          <th className="text-md w-1/12 px-6 py-3 text-left font-medium text-gray-100">
             項次
           </th>
-          <th className="px-6 py-3 w-2/12 text-left text-md font-medium text-gray-100">
+          <th className="text-md w-2/12 px-6 py-3 text-left font-medium text-gray-100">
             評核項目序號
           </th>
-          <th className="px-6 py-3 w-1/12 text-left text-md font-medium text-gray-100">
+          <th className="text-md w-1/12 px-6 py-3 text-left font-medium text-gray-100">
             評核項目
           </th>
-          <th className="px-6 py-3 w-2/12 text-left text-md font-medium text-gray-100">
+          <th className="text-md w-2/12 px-6 py-3 text-left font-medium text-gray-100">
             評核標準序號
           </th>
-          <th className="px-6 py-3 w-5/12 text-left text-md font-medium text-gray-100">
+          <th className="text-md w-5/12 px-6 py-3 text-left font-medium text-gray-100">
             評核標準
           </th>
-          <th className="px-6 py-3 w-1/12 text-left text-md font-medium text-gray-100">
+          <th className="text-md w-1/12 px-6 py-3 text-left font-medium text-gray-100">
             編輯
           </th>
         </tr>
       </thead>
-      <tbody className="bg-white divide-y divide-gray-300">
+      <tbody className="divide-y divide-gray-300 bg-white">
         {items.map((item, index) => (
           <tr key={index}>
-            <td className="px-6 py-3 text-md">{index + 1}</td>
-            <td className="px-6 py-3 whitespace-nowrap text-md">
+            <td className="text-md px-6 py-3">{index + 1}</td>
+            <td className="text-md whitespace-nowrap px-6 py-3">
               {item.itemNo}
             </td>
-            <td className="px-6 py-3 whitespace-nowrap text-md">{item.item}</td>
-            <td className="px-6 py-3 whitespace-nowrap text-md">
+            <td className="text-md whitespace-nowrap px-6 py-3">{item.item}</td>
+            <td className="text-md whitespace-nowrap px-6 py-3">
               {item.standardNo}
             </td>
-            <td className="px-6 py-3 whitespace-nowrap text-md">
+            <td className="text-md whitespace-nowrap px-6 py-3">
               {item.standard}
             </td>
-            <td className="px-6 py-3 space-x-2">
+            <td className="space-x-2 px-6 py-3">
               <button className="inline" onClick={() => handleEditClick(item)}>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -63,7 +63,7 @@ const Table = ({
                   viewBox="0 0 24 24"
                   strokeWidth={1.5}
                   stroke="currentColor"
-                  className="w-6 h-6 text-gray-500 hover:text-gray-800"
+                  className="h-6 w-6 text-gray-500 hover:text-gray-800"
                 >
                   <path
                     strokeLinecap="round"
@@ -82,7 +82,7 @@ const Table = ({
                   viewBox="0 0 24 24"
                   strokeWidth={1.5}
                   stroke="currentColor"
-                  className="w-6 h-6 text-red-600 hover:text-red-800"
+                  className="h-6 w-6 text-red-600 hover:text-red-800"
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -90,7 +90,7 @@ const Table = ({
                     viewBox="0 0 24 24"
                     strokeWidth={1.5}
                     stroke="currentColor"
-                    className="w-6 h-6"
+                    className="h-6 w-6"
                   >
                     <path
                       strokeLinecap="round"

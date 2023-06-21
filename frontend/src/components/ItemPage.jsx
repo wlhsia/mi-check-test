@@ -130,10 +130,10 @@ const ItemPage = () => {
           {tabs.map((tab) => (
             <button
               key={tab.id}
-              className={`py-2 px-8 text-md font-normal ${
+              className={`text-md px-8 py-2 font-normal ${
                 activeTab === tab.id
-                  ? "text-gray-600 border-b-2 border-gray-500"
-                  : "text-gray-600 hover:border-b-2 border-gray-300"
+                  ? "border-b-2 border-gray-500 text-gray-600"
+                  : "border-gray-300 text-gray-600 hover:border-b-2"
               }`}
               onClick={() => handleTabClick(tab.id)}
             >
@@ -144,7 +144,7 @@ const ItemPage = () => {
         <div className="mt-4">
           <div className="flex justify-end py-2">
             <button
-              className="px-4 py-2 bg-gray-700 text-white rounded-md hover:bg-gray-500 flex items-center space-x-1"
+              className="flex items-center space-x-1 rounded-md bg-gray-700 px-4 py-2 text-white hover:bg-gray-500"
               onClick={handleAddClick}
             >
               <svg
@@ -153,7 +153,7 @@ const ItemPage = () => {
                 viewBox="0 0 24 24"
                 strokeWidth={1.5}
                 stroke="currentColor"
-                className="w-5 h-5 inline"
+                className="inline h-5 w-5"
               >
                 <path
                   strokeLinecap="round"

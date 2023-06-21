@@ -3,19 +3,19 @@ import React from "react";
 const Drawer = ({ isOpen, toggleOpen }) => {
   return (
     <div
-      className={`fixed inset-y-0 left-0 top-16  w-72 p-2 bg-white shadow-lg duration-300 ease-in-out ${
+      className={`fixed inset-y-0 left-0 top-16  w-72 bg-white p-2 shadow-lg duration-300 ease-in-out ${
         isOpen ? "translate-x-0" : "-translate-x-full"
       }`}
     >
       <div className="flex justify-between">
-        <button className="px-4 py-2 bg-gray-600 hover:bg-gray-950 rounded text-white flex items-center">
+        <button className="flex items-center rounded bg-gray-600 px-4 py-2 text-white hover:bg-gray-950">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
             viewBox="0 0 24 24"
             strokeWidth={1.5}
             stroke="currentColor"
-            className="w-5 h-5 inline"
+            className="inline h-5 w-5"
           >
             <path
               strokeLinecap="round"
@@ -26,7 +26,7 @@ const Drawer = ({ isOpen, toggleOpen }) => {
           <p className="inline">建立查核案件</p>
         </button>
         <button
-          className="p-2 bg-gray-600 hover:bg-gray-950 rounded text-white "
+          className="rounded bg-gray-600 p-2 text-white hover:bg-gray-950 "
           onClick={toggleOpen}
         >
           <svg
@@ -35,7 +35,7 @@ const Drawer = ({ isOpen, toggleOpen }) => {
             viewBox="0 0 24 24"
             strokeWidth={1.5}
             stroke="currentColor"
-            className="w-6 h-6"
+            className="h-6 w-6"
           >
             <path
               strokeLinecap="round"
@@ -47,13 +47,13 @@ const Drawer = ({ isOpen, toggleOpen }) => {
       </div>
       <div className="mt-2">
         <div className="p-2">
-          <h3 className="text-gray-500 text-sm">查核案件</h3>
+          <h3 className="text-sm text-gray-500">查核案件</h3>
         </div>
         <ol className="w-full space-y-1">
           <li>
             <a
               href="#"
-              className="flex p-3 items-center gap-2 w-full rounded border border-gray-600 hover:bg-gray-100"
+              className="flex w-full items-center gap-2 rounded border border-gray-600 p-3 hover:bg-gray-100"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -61,7 +61,7 @@ const Drawer = ({ isOpen, toggleOpen }) => {
                 viewBox="0 0 24 24"
                 strokeWidth={1.5}
                 stroke="currentColor"
-                className="w-6 h-6"
+                className="h-6 w-6"
               >
                 <path
                   strokeLinecap="round"
@@ -77,7 +77,7 @@ const Drawer = ({ isOpen, toggleOpen }) => {
                   viewBox="0 0 24 24"
                   strokeWidth={1.5}
                   stroke="currentColor"
-                  className="w-6 h-6 text-red-600 hover:text-red-800"
+                  className="h-6 w-6 text-red-600 hover:text-red-800"
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -85,7 +85,7 @@ const Drawer = ({ isOpen, toggleOpen }) => {
                     viewBox="0 0 24 24"
                     strokeWidth={1.5}
                     stroke="currentColor"
-                    className="w-6 h-6"
+                    className="h-6 w-6"
                   >
                     <path
                       strokeLinecap="round"
@@ -99,7 +99,7 @@ const Drawer = ({ isOpen, toggleOpen }) => {
           </li>
         </ol>
         <div className="p-2">
-          <h3 className="text-gray-500 text-sm">受查核案件</h3>
+          <h3 className="text-sm text-gray-500">受查核案件</h3>
         </div>
       </div>
     </div>
